@@ -50,8 +50,8 @@
             <!-- Header with Hamburger -->
             <div class="flex justify-between items-center mb-6">
                 <!-- Hamburger Button for Mobile -->
-                <button id="menu-toggle" class="fixed top-4 right-4 z-50  p-2 rounded-md shadow-lg md:hidden">
-                    <span id="menu-icon" class="material-icons text-3xl">menu</span>
+                <button id="menu-toggle" class="md:hidden text-white">
+                    <span id="menu" class="material-icons text-3xl">menu</span>
                 </button>
                 
                 <div class="text-center md:text-left">
@@ -165,7 +165,7 @@
                                     <span class="material-icons">calendar_month</span>
                                 </span>
                             
-                                <!-- Input Field -->
+                                <!-- Input Field with Padding Adjusted -->
                                 <input type="text" placeholder="10 May - 21 May"
                                     class="bg-gray-900 p-2 pl-10 pr-10 rounded-lg text-white w-full border focus:outline-none">
                             
@@ -258,21 +258,21 @@
             </div>
         </main>
     </div>
-    <!-- <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const sidebar = document.getElementById("sidebar");
-    const menuIcon = document.getElementById("menu-icon");
-
-    menuToggle.addEventListener("click", function () {
-        sidebar.classList.toggle("hidden"); // Show/hide sidebar
-
-        // Toggle icon between "menu" and "close"
-        menuIcon.textContent = sidebar.classList.contains("hidden") ? "menu" : "close";
-    });
-});
-
-        </script> -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuToggle = document.getElementById("menu-toggle");
+            const sidebar = document.getElementById("sidebar");
+        
+            menuToggle.addEventListener("click", function () {
+                sidebar.classList.toggle("hidden"); // Show/hide sidebar
+                if (sidebar.classList.contains("hidden")) {
+            menuIcon.textContent = "☰"; // Show hamburger icon
+        } else {
+            menuIcon.textContent = "✖"; // Show close icon
+        }
+            });
+        });
+        </script>
         
 
 </body>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
+</head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link
     rel="shortcut icon"
@@ -50,8 +50,8 @@
             <!-- Header with Hamburger -->
             <div class="flex justify-between items-center mb-6">
                 <!-- Hamburger Button for Mobile -->
-                <button id="menu-toggle" class="fixed top-4 right-4 z-50  p-2 rounded-md shadow-lg md:hidden">
-                    <span id="menu-icon" class="material-icons text-3xl">menu</span>
+                <button id="menu-toggle" class="md:hidden text-white">
+                    <span class="material-icons text-3xl">menu</span>
                 </button>
                 
                 <div class="text-center md:text-left">
@@ -165,7 +165,7 @@
                                     <span class="material-icons">calendar_month</span>
                                 </span>
                             
-                                <!-- Input Field -->
+                                <!-- Input Field with Padding Adjusted -->
                                 <input type="text" placeholder="10 May - 21 May"
                                     class="bg-gray-900 p-2 pl-10 pr-10 rounded-lg text-white w-full border focus:outline-none">
                             
@@ -258,21 +258,21 @@
             </div>
         </main>
     </div>
-    <!-- <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuToggle = document.getElementById("menu-toggle");
-    const sidebar = document.getElementById("sidebar");
-    const menuIcon = document.getElementById("menu-icon");
+    <script>
+        function toggleMenu(buttonId, menuId) {
+  const button = document.getElementById(buttonId);
+  const menu = document.getElementById(menuId);
+  const body = document.body; // Select the body element
 
-    menuToggle.addEventListener("click", function () {
-        sidebar.classList.toggle("hidden"); // Show/hide sidebar
+  button.addEventListener("click", function () {
+    menu.classList.toggle("hidden");
+    body.classList.toggle("overflow-hidden"); // Prevent background scroll
+  });
+}
 
-        // Toggle icon between "menu" and "close"
-        menuIcon.textContent = sidebar.classList.contains("hidden") ? "menu" : "close";
-    });
-});
+// Usage
+toggleMenu("", "menu");
 
-        </script> -->
-        
+    </script>
 
 </body>
