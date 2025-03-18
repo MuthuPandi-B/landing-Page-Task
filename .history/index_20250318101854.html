@@ -259,29 +259,26 @@
         </main>
     </div>
     <script>
- document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const sidebar = document.getElementById("sidebar");
     const menuIcon = document.getElementById("menu-icon");
-    const hiddenElements = document.querySelectorAll(".hide-on-menu");
-    const body = document.body;
+    const hiddenElements=document.querySelectorAll(".hide-on-menu");
+    const body=document.body;
 
     menuToggle.addEventListener("click", function () {
         const isOpen = !sidebar.classList.contains("hidden");
+        sidebar.classList.toggle("hidden"); // Show/hide sidebar
 
-        // Toggle sidebar
-        sidebar.classList.toggle("hidden");
-
-        // Toggle scrolling on body
-        body.style.overflow = isOpen ? "auto" : "hidden";
-
-        // Toggle hidden elements
-        hiddenElements.forEach(element => {
-            element.classList.toggle("hidden", !isOpen); // Hide when menu is open, show when closed
-        });
+            // Toggle scrolling on body
+            if (isOpen) {
+            body.style.overflow = "auto"; // Enable scrolling
+        } else {
+            body.style.overflow = "hidden"; // Disable scrolling
+        }
 
         // Toggle icon between "menu" and "close"
-        menuIcon.textContent = isOpen ? "menu" : "close";
+        menuIcon.textContent = sidebar.classList.contains("hidden") ? "menu" : "close";
     });
 });
 

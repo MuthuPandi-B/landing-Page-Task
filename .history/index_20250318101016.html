@@ -58,7 +58,7 @@
                     <h2 class="text-xl font-semibold">Welcome Back, Beni</h2>
                     <p class="text-gray-400">Here's what's happening with your store today.</p>
                 </div>
-                <div class="relative w-full md:w-1/2 hide-on-menu">
+                <div class="relative w-full md:w-1/2">
                     <input type="text" placeholder="Search for anything..."
                         class="bg-gray-800 p-2 pr-10 rounded-lg text-white w-full focus:outline-none">
                     <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
@@ -99,14 +99,14 @@
                     <div class="bg-gray-800 p-4 rounded">
                         <div class="flex flex-col md:flex-row justify-between items-center mb-2 gap-4">
                             <h3 class="font-semibold">Transaction</h3>
-                            <div class="relative w-full md:w-1/3 hide-on-menu">
+                            <div class="relative w-full md:w-1/3">
                                 <input type="text" placeholder="Search for anything..."
                                     class="bg-gray-700 p-2 pr-10 rounded-lg text-white w-full focus:outline-none">
                                 <span class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
                                     <span class="material-icons">search</span>
                                 </span>
                             </div>
-                            <div class="relative w-full md:w-1/3 hide-on-menu">
+                            <div class="relative w-full md:w-1/3">
                                 <span class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
                                     <span class="material-icons">calendar_month</span>
                                 </span>
@@ -259,29 +259,17 @@
         </main>
     </div>
     <script>
- document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener("DOMContentLoaded", function () {
     const menuToggle = document.getElementById("menu-toggle");
     const sidebar = document.getElementById("sidebar");
     const menuIcon = document.getElementById("menu-icon");
-    const hiddenElements = document.querySelectorAll(".hide-on-menu");
-    const body = document.body;
+    const 
 
     menuToggle.addEventListener("click", function () {
-        const isOpen = !sidebar.classList.contains("hidden");
-
-        // Toggle sidebar
-        sidebar.classList.toggle("hidden");
-
-        // Toggle scrolling on body
-        body.style.overflow = isOpen ? "auto" : "hidden";
-
-        // Toggle hidden elements
-        hiddenElements.forEach(element => {
-            element.classList.toggle("hidden", !isOpen); // Hide when menu is open, show when closed
-        });
+        sidebar.classList.toggle("hidden"); // Show/hide sidebar
 
         // Toggle icon between "menu" and "close"
-        menuIcon.textContent = isOpen ? "menu" : "close";
+        menuIcon.textContent = sidebar.classList.contains("hidden") ? "menu" : "close";
     });
 });
 
